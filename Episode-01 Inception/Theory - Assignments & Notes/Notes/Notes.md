@@ -1,4 +1,28 @@
 - what is emmet
+- - how to enable in when we code -> using ! + Tab button
+
+--- using Simple HTML
+
+```html
+<body>
+    <!-- Pure HTML -->
+    <h1>Hello Top of Root</h1>
+
+    <div id="root">
+      <h1>Hello World from HTML !!</h1>
+    </div>
+
+    <h1>Hello Top of Root</h1>
+  </body>
+  ```
+
+
+--- Using Vanilla js
+
+. create root div element
+. create element h1
+. write text of h1 using js
+. append h1 inside the root div
 
 --- React
 
@@ -9,7 +33,7 @@ library vs framework
 
 libraray takes minimum effort to put it into the code
 
-To use react we need to get react into ourt project first
+--- To use react we need to get react into ourt project first
 
 -- Ways to get react into project :
 
@@ -25,6 +49,9 @@ To use react we need to get react into ourt project first
 
 -- What is crossorigin attribute ?
 
+cross origin server resource is an http header based mechanism that allows a server to indicate anty cross origins (domain, scheem or pot) othe that irs own from which a browser should permit loading resources.
+
+cross origin attribute provide support for COR. if we write crossorigin in script means that the script should be loaded from a different origin
 
 -- Why there are 2 files first of all ?
 
@@ -81,5 +108,144 @@ its blank we ahvent written anything but when we open index.html in browser and 
 
 u can open it and see it has a lot of things given by react-dom we can use provided by react-dom
 
-SO when we injected tehe 2 files we inhjected the superpowers of react and react-dom into the project to use it in out project and build alrge scale apps
+SO when we injected the 2 files we injected the superpowers of react and react-dom into the project to use it in out project and build alrge scale apps
+
+--- Creating via React CDN
+
+. create root
+. create element
+. append element in root
+
+- what does {} do while we create element iva react
+
+
+we did all in the script tag via react <scrip></script>
+
+
+--- Creating same but in a separate file
+
+its not good to write all length code inside the script tag hence we write it in aother file say App.js
+then we inject the file in html
+
+```js
+<script src = "App.js"></script>
+```
+
+we jsut moved the script code in a separte file thats it
+
+now to add css styles create a new css file say index.css and import in head of index.html and style your text etc via selecting them ... as shown
+
+
+-- But what is React.createElement() ?? what do we get if i console the output of what we stored in hading when we created h1 element
+
+ans : we get an Object stored in teh variablle heading and not jsut some HTML in it say in this case an h1 tag. React.createElement() returns an object which is stored in heading variable.
+So heading is basically a React h1 element. React elemen is nothing but a normal js object
+
+this object has props in it which has the children & attributes we pass while making a react element using React.createElement
+ props{
+   children: ' Hello from React!!'
+   id: heading
+ }
+
+-- waht does react.render(heading) does as heading is an object here??
+
+ans : It basically converts the object process and makes that html tah h1 heading and renders in the browser.
+
+--- Creating NESTED ELEMENTS IN REACT
+
+explain nicely 1 nested element
+<div id="child">
+//     <h1>Nested Heading</h1>
+//   </div>
+
+2 nested elemnts sibling case
+// <div id="parent">
+//   <div id="child">
+//     <h1>Nested Heading</h1>
+//     <h2>Nested Heading 2</h2>
+//   </div>
+// </div>
+
+
+also we get an error whiel creating siblings need unique key leave it for now we will study why and how to fix this later
+
+now 3rd
+
+// <div id="parent">
+//   <div id="child">
+//     <h1>Nested Heading</h1>
+//     <h2>Nested Heading 2</h2>
+//   </div>
+
+<div id="child">
+//     <h1>Nested Heading</h1>
+//     <h2>Nested Heading 2</h2>
+//   </div>
+// </div>
+
+now we can create it but code will get messy and start getting  complicated !! messy and untidy
+
+this is where JSX comes into play
+reat is known as react bcoz it as designed tohelp the developers react to cahngs inm the state of the applicatyin by efficiently rendering and updating the ui in respose to the changes
+
+React cna not only be written in JSX JSX just makes our life easy !!
+this was core of react how we can create elements usig core react !!
+
+--- Most costly thing / operation is DOM manipualtion
+
+
+-- Order of Filsin index.html ?? important why
+
+```html
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="ie=edge"
+    />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="style.css"
+    />
+  </head>
+  <body>
+    <!-- Root Div -->
+    <div id="root"></div>
+
+    <!-- React CDN  -->
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+
+    <!-- Script -->
+    <script src="index.js"></script>
+  </body>
+</html>
+
+```
+
+we need to keep ract cdn files before index.js import !! bcoz the .js file is using react in it
+
+can we write `crossorigin` in <script src = 'index.js'></script> ?
+ ---
+
+
+ --- is we already have a heading inside root and tehn we write this ract code and render another h1 in root div it overwrites that prev one
+
+ 1. first the browser prints the initial html we wrote
+ 2. 2. then it goers to the react code file we write and implements that and overrides it
+
+but anything thats outisde the root div say top adn bottom of root are not affecerd by react as react only has the control over the root div here
 
