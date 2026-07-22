@@ -10,23 +10,19 @@
       http-equiv="X-UA-Compatible"
       content="ie=edge"
     />
-    <title>Document</title>
+    <title>
+      Namaste React - Nested Elements
+    </title>
     <link
       rel="stylesheet"
       href="style.css"
     />
   </head>
   <body>
-    <div id="root">Top of Root</div>
     <!-- Root Div -->
-    <div id="root">
-      <h1 >Onkar </h1>
-    </div>
+    <div id="root"></div>
 
-    <div id="root">Bottom of Root</div>
-
-
-    <!-- React CDN  -->
+    <!-- React CDN -->
     <script
       crossorigin
       src="https://unpkg.com/react@18/umd/react.development.js"
@@ -35,6 +31,19 @@
       crossorigin
       src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
     ></script>
+
+    <!--
+  Demonstrates building NESTED structures with React.createElement(),
+  e.g.:
+    <div id="parent">
+      <div id="child">
+        <h1>Nested Heading</h1>
+        <h2>Nested Heading 2</h2>
+      </div>
+    </div>
+
+  See index.js for the full breakdown (single child vs multiple children).
+    -->
 
     <!-- Script -->
     <script src="index.js"></script>

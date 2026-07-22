@@ -1,5 +1,12 @@
+/* style.css
+   ----------
+   Simple styling for the #heading element created by React in index.js.
+   Note: in JSX, "class" becomes "className" which we will see later - but plain CSS selectors
+   here work the same way as always, since this file is just CSS.
+*/
+
 #heading {
   color: red;
-  font-size : 40px;
+  font-size: 40px;
   background-color: black;
 }

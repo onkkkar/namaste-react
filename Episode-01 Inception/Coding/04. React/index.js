@@ -1,23 +1,30 @@
-// Using React in separate file
+// index.js
+// ---------
+// Using React in a separate file instead of an inline <script> tag.
+// Cleaner and easier to maintain as the app grows.
+
 // 1. Create Root
-// Creating  a Root and rendering something inside is job of ReactDOM using .createRoot()
-// () of .createRoot() contains the root div where we want to render our React code
+// Creating a root and rendering something inside it is the job of
+// ReactDOM, via .createRoot(). It takes the DOM node (our root div)
+// where we want to mount our React app.
 const root = ReactDOM.createRoot(
   document.getElementById('root'),
 );
 
-// 2. Creating h1 Element
-// Creating an elemnet is job of React using .createElement()
-// () : contains 3 things : tag name, attributes of the tag, content of the tag as string ('tag-name', {attributes}, 'content')
+// 2. Create an h1 Element
+// Creating an element is the job of React, via .createElement().
+// Signature: React.createElement(tagName, attributesObject, content)
 const heading = React.createElement(
   'h1', // tag name
-  {id: 'heading'}, // contains attributes of the tag in this case id = 'heading'
-  'Hello from React !!', // content of the tag : Children of the tag, can be string or another element
+  { id: 'heading' }, // attributes of the tag - here we give it an id
+  'Hello from React !!', // content of the tag (children)
 );
 
-console.log(heading); // React.createElement() returns an object which is stored in heading variable
+// React.createElement() returns a plain JS object (not real HTML yet).
+// Logging it shows the underlying React element structure.
+console.log(heading);
 
-// 3. Rendering the heading inside the root div using .render()
-// This converts the React element object into HTML and renders it inside the root div
-
+// 3. Render the heading inside the root div using .render()
+// This converts the React element object into real HTML and mounts it
+// inside the root div.
 root.render(heading);

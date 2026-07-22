@@ -6,24 +6,34 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
-    <title>Namaste React</title>
+    <title>
+      Namaste React - Vanilla JS
+    </title>
   </head>
   <body>
-    <!--  Using Vanilla JS -->
+    <div id="root"></div>
+
+  <!-- Same result as pure HTML, but built manually using vanilla JavaScript and DOM APIs
+  Steps:
+    1. Create the h1 element
+    2. Set its text
+    3. Grab the root div
+    4. Append the h1 into the root div
+  -->
     <script>
-      // Create a new h1 element
+      // 1. Create a new h1 element
       const heading =
         document.createElement('h1');
 
-      // 1. Set the inner HTML of the heading
+      // 2. Set the inner HTML (text content) of the heading
       heading.innerHTML =
         'Hello from Vanilla JS';
 
-      // 2. Select the root div and append the heading to it
+      // 3. Select the root div
       const root =
         document.getElementById('root');
 
-      // 3. Append the heading to the root div
+      // 4. Append the heading to the root div
       root.appendChild(heading);
     </script>
   </body>

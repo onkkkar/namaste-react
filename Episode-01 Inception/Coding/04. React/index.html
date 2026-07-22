@@ -10,7 +10,9 @@
       http-equiv="X-UA-Compatible"
       content="ie=edge"
     />
-    <title>Document</title>
+    <title>
+      Namaste React - Separate Files
+    </title>
     <link
       rel="stylesheet"
       href="style.css"
@@ -30,7 +32,15 @@
       src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
     ></script>
 
-    <!-- Using React in separate file -->
+    <!-- Our own script, in a separate file -->
     <script src="./index.js"></script>
+
+
+    <!--
+    Order of files matters:
+    1. Root div must exist before scripts run
+    2. React + ReactDOM CDN scripts must load BEFORE index.js,
+    since index.js uses the React / ReactDOM globals
+    -->
   </body>
 </html>

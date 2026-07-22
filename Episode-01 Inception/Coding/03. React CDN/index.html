@@ -6,13 +6,15 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
-    <title>Namaste React</title>
+    <title>
+      Namaste React - React via CDN
+    </title>
   </head>
   <body>
     <!-- Root Div -->
     <div id="root"></div>
 
-    <!-- React CDN -->
+    <!-- React CDN: crossorigin lets the browser load these scripts from a different origin (CORS) -->
     <script
       crossorigin
       src="https://unpkg.com/react@18/umd/react.development.js"
@@ -22,27 +24,28 @@
       src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
     ></script>
 
-    <!-- Using React in script tag -->
+    <!-- Our React code, written directly in the script tag -->
     <script>
       // 1. Create Root
-      // Creating  a Root and rendering something inside is job of ReactDOM using .createRoot()
-      // () of .createRoot() contains the root div where we want to render our React code
+      // Creating a root and rendering something inside it is the job of
+      // ReactDOM, done via .createRoot(). It takes the DOM node (our root div) where we want React to render.
       const root = ReactDOM.createRoot(
         document.getElementById('root'),
       );
 
-      // 2. Creating h1 Element
-      // Creating an elemnet is job of React using .createElement()
-      // () : contains 3 things : tag name, attributes of the tag, content of the tag as string ('tag-name', {attributes}, 'content')
+      // 2. Create an h1 element
+      // Creating an element is the job of React, via .createElement().
+      // Signature: React.createElement(tagName, attributesObject, content)
       const heading =
         React.createElement(
           'h1', // tag name
-          {}, // contains attributes of the tag can be class, id etc. (object)
-          'Hello from React !!', // content of the tag : Children of the tag, can be string or another element
+          {}, // attributes of the tag (class, id, etc.) - empty here
+          'Hello from React !!', // content / children of the tag
         );
 
-      // 3. Rendering the heading inside the root div using .render()
-      // This converts the React element object into HTML and renders it inside the root div
+      // 3. Render the heading inside the root div using .render()
+      // This converts the React element (a plain JS object) into real
+      // HTML and mounts it inside the root div.
       root.render(heading);
     </script>
   </body>
