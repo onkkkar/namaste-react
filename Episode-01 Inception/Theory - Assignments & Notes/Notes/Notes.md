@@ -1,9 +1,11 @@
 # Chapter 01 – Inception (React)
 
-## 1. What is Emmet? (H.W.)
+---
+
+## 1. What is Emmet? 🏠 *Assignment*
 
 - Designed to speed up the process of writing and editing code by providing a set of shortcuts that can be quickly expanded into full code blocks.
-- How to enable it when we code → using `!` + `Tab` button in the `.html` file
+- How to enable it when we code → using `!` + `Tab` button in the `.html` file.
 
 ---
 
@@ -59,7 +61,7 @@ Steps:
 
 ### 3.3 Using React
 
-React is a JS library with variables, functions, etc. It makes our life easier, and it was written by Facebook developers. The browser does not understand React code directly — the library and its helper functions takes care of turning it into something the browser can render.
+React is a JS library with variables, functions, etc. It makes our life easier, and it was written by Facebook developers. The browser does not understand React code directly — the library and its helper functions take care of turning it into something the browser can render.
 
 ---
 
@@ -71,7 +73,7 @@ To use React, we need to get React into our project first.
 
 **1. CDN (Content Delivery Network)**
 
-**What is a CDN?**
+**What is a CDN?** 🏠 *Assignment*
 > A place / website where React files are hosted, and we just get them from there and use them in our project via CDN links. Both React and React-DOM are available over a CDN.
 
 CDN gives you the links to where those React files are hosted, which you can import and use for yourself.
@@ -83,7 +85,7 @@ CDN gives you the links to where those React files are hosted, which you can imp
 
 ---
 
-## 5. What Is the `crossorigin` Attribute?
+## 5. What Is the `crossorigin` Attribute? 🏠 *Assignment*
 
 **CORS (Cross Origin Resource Sharing)** is an HTTP-header-based mechanism that allows a server to indicate any cross origins (domain, scheme, or port) other than its own, from which a browser should permit loading resources.
 
@@ -101,7 +103,7 @@ If we serve React from a CDN, keep the `crossorigin` attribute set:
 
 **1. First file (react)** — the **core** file of the React framework/algorithm.
 
-**2. Second file (react-dom)** — the file useful for DOM operations, which we need to modify the DOM (Document Object Model) when we use ract in web.
+**2. Second file (react-dom)** — the file useful for DOM operations, which we need to modify the DOM (Document Object Model) when we use React in web.
 
 This is why we have two different files.
 
@@ -110,6 +112,13 @@ This is why we have two different files.
 We cannot put all of it in just one file. React doesn't only work on browsers — in mobile, we use React Native, there's also React 3D, etc. So there are different functions used in different places.
 
 So the first file is the **core** React, and the second is the **bridge between the browser and React**, called `react-dom` (in the web dev case — in React Native it might be different).
+
+**What is the difference between `React` and `ReactDOM`?** 🏠 *Assignment*
+
+> 📝 **Added — answer:**
+> - **`React`** is the core library. It knows *how* to create elements/components and how to figure out what changed between renders (the reconciliation/diffing logic). It has no idea what a browser, mobile screen, or DOM even is.
+> - **`ReactDOM`** is the "renderer" for the web. It takes what React figured out and actually talks to the browser's DOM — creating/updating/removing real HTML elements (via `createRoot`, `render`, etc.).
+> - This split is exactly why React can power different platforms: for the web we pair `React` with `react-dom`, for mobile apps we pair the same `React` with `react-native` instead. The core logic (`React`) stays the same; only the renderer changes based on the platform.
 
 ---
 
@@ -151,6 +160,13 @@ You can open it and see it has a lot of things given by React-DOM that we can us
 
 So, when we injected the two files, we injected the "superpowers" of React and React-DOM into the project, to use them and build large-scale apps.
 
+**What is the difference between `react.development.js` and `react.production.js` (via CDN)?** 🏠 *Assignment*
+
+> 📝 **Added — answer:**
+> - **`react.development.js`** — meant for local development. It includes extra warnings, detailed error messages, and helpful checks (like the "needs a unique key" warning) that help you catch mistakes early. Because of all these extra checks, it's larger in file size and runs slower.
+> - **`react.production.min.js`** — meant for the live/deployed app. All those dev-only warnings and checks are stripped out, and the code is minified (shortened variable names, whitespace removed, etc.), making it much smaller and faster.
+> - **Rule of thumb:** use the `development` build while building/debugging your app, and switch to the `production` build before shipping it, so users get a faster, lighter app.
+
 ---
 
 ## 8. Order of Files in `index.html` (Important!)
@@ -185,7 +201,9 @@ We need to keep the React CDN files **before** the `index.js` import, because th
 
 - If we write the React script *before* the two CDN links, we will get an error in the console — "React not defined" — and the React elements will not be rendered properly.
 - Developers write `<div id="root">Not Rendered Yet</div>` — because if something goes wrong and React fails to render properly into the root element, this placeholder text makes that failure easy to detect.
-- Can we write `crossorigin` on `<script src="index.js"></script>`? *(question left open to think about)*
+- Can we write `crossorigin` on `<script src="index.js"></script>`?
+
+> 📝 **Added — answer:** No, there's no real need to. `crossorigin` matters when the script is being loaded **from a different origin/domain** (like the React CDN links, which come from `unpkg.com`). `index.js` is served from **our own project**, i.e. the same origin as `index.html`, so there's no cross-origin request happening — the attribute has nothing to do here. Adding it wouldn't break anything, it's just unnecessary.
 
 ---
 
@@ -409,7 +427,7 @@ This whole section was about the **core of React** — how we can create element
 
 ---
 
-## 15. Why Is React Called "React"? (H.W.)
+## 15. Why Is React Called "React"? 🏠 *Assignment*
 
 Because it was designed to help developers **"react"** to changes in the state of an application, by efficiently rendering and updating the UI in response to those changes.
 
@@ -423,3 +441,17 @@ Because it was designed to help developers **"react"** to changes in the state o
 
 - We can inject React into any existing project too, without affecting the other areas. If we already have two `div`s above and below the root div, React will only affect the root div — the others will be displayed as usual.
 
+---
+
+## 17. Homework / Things to Explore Further
+
+All 🏠 **Assignment** questions from this lecture, in one place:
+
+- [x] What is Emmet? *(answered in §1)*
+- [x] What is a CDN? *(answered in §4)*
+- [x] What is the `crossorigin` attribute? *(answered in §5)*
+- [x] What is the difference between `React` and `ReactDOM`? *(answered in §6)*
+- [x] What is the difference between `react.development.js` and `react.production.js`? *(answered in §7)*
+- [x] Can we write `crossorigin` on `<script src="index.js"></script>`? *(answered in §8)*
+- [x] Why is React called "React"? *(answered in §15)*
+- [ ] Watch: **Akshay Saini's video on `async` & `defer`** (referenced in handwritten notes as "klatch async & defer YT video") — not a written question, just something to go watch
